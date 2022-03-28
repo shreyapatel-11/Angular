@@ -9,6 +9,7 @@ import { ListPresentationComponent } from './list-container/list-presentation/li
 import { FormPresentationComponent } from './form-container/form-presentation/form-presentation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { FilterOverlayPresentationComponent } from './list-container/list-presentation/filter-overlay-presentation/filter-overlay-presentation.component';
 // import { HttpClientModule } from '@angular/common/http';
 
@@ -26,6 +27,7 @@ import { FilterOverlayPresentationComponent } from './list-container/list-presen
     CommonModule,
     MentorRoutingModule,
     ReactiveFormsModule,
+    OverlayModule
     // HttpClientModule,
   ]
 })

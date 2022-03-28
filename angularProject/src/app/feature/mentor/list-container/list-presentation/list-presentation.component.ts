@@ -41,6 +41,9 @@ export class ListPresentationComponent implements OnInit {
     this.route.navigateByUrl(`mentor/edit/${id}`);
   }
 
+  onOverlay(){
+    this.listPresenter.openOverlay();
+  }
   onDelete(id: number){
     this.listPresenter.onDelete(id);
   }

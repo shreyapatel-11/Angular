@@ -1,0 +1,37 @@
+<div class="pb-4">
+    <h2>List of Users</h2>
+    <div class="d-flex justify-content-between">
+      <!-- <input type="text" placeholder="Search User" [formControl]="search"> -->
+      <button class="btn btn-dark" routerLink="../form">+ Add</button>
+      <!-- <button class="btn btn-info" (click)="onOverlay()"> Filter</button> -->
+    </div>
+  </div>
+  
+  <table class="table caption-top border text-center">
+    <thead>
+      <tr>
+        <th scope="col">User Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Email</th>
+        <th scope="col">Experience(Year)</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="align-middle" *ngFor="let mentor of mentorList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ mentor.name }}</td>
+        <td>{{ mentor.age }}</td>
+        <td>{{ mentor.email }}</td>
+        <td>{{ mentor.experience }}</td>
+        <td>{{ mentor.gender }}</td>
+        <td>
+          <button class="btn btn-primary me-2" (click)="onEdit(i+1)">Edit</button>
+          <button class="btn btn-danger" (click)="onDelete(mentor.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+

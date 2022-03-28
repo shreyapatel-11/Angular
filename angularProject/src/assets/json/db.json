@@ -1,0 +1,60 @@
+{
+  "mentor": [
+    {
+      "name": "Hiren",
+      "age": 21,
+      "email": "ht@gmail.com",
+      "experience": 4,
+      "gender": "Male",
+      "id": 1
+    },
+    {
+      "name": "shreya patel",
+      "age": "21",
+      "email": "ab@gmil.com",
+      "experience": 0.5,
+      "gender": "Female",
+      "id": 2
+    },
+    {
+      "name": "Kevang",
+      "age": "23",
+      "email": "ab@gmil.com",
+      "experience": 4,
+      "gender": "Male",
+      "id": 3
+    },
+    {
+      "name": "Jay",
+      "age": "23",
+      "email": "ab@gmil.com",
+      "experience": 2,
+      "gender": "Male",
+      "id": 4
+    },
+    {
+      "name": "Harshiv",
+      "age": "23",
+      "email": "ab@gmil.com",
+      "experience": 4,
+      "gender": "Male",
+      "id": 5
+    },
+    {
+      "name": "Nirali",
+      "age": "21",
+      "email": "ab@gmil.com",
+      "experience": 2,
+      "gender": "Female",
+      "id": 6
+    },
+    {
+      "name": "Ayushi",
+      "age": "21",
+      "email": "ap@gmail.com",
+      "experience": 2.5,
+      "gender": "Female",
+      "id": 7
+    }
+  ]
+}

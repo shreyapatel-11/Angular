@@ -10,7 +10,9 @@ import { FormPresentationComponent } from './form-container/form-presentation/fo
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { OverlayModule } from '@angular/cdk/overlay';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FilterOverlayPresentationComponent } from './list-container/list-presentation/filter-overlay-presentation/filter-overlay-presentation.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 // import { HttpClientModule } from '@angular/common/http';
 
 
@@ -27,7 +29,9 @@ import { FilterOverlayPresentationComponent } from './list-container/list-presen
     CommonModule,
     MentorRoutingModule,
     ReactiveFormsModule,
-    OverlayModule
+    OverlayModule,
+    DragDropModule,
+    SharedModule
     // HttpClientModule,
   ]
 })

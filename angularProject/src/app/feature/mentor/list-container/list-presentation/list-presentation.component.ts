@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,10 +10,12 @@ import { ListPresenterService } from '../list-presenter/list-presenter.service';
   templateUrl: './list-presentation.component.html',
   styleUrls: ['./list-presentation.component.scss'],
   viewProviders: [ListPresenterService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListPresentationComponent implements OnInit {
 
+  startIndex = 0;
+  endIndex = 8;
   @Input() public set mentorList(value : Mentor[] | null) {
     if (value) {
       this._mentorList = value;
@@ -20,13 +23,15 @@ export class ListPresentationComponent implements OnInit {
   }
  
   public get mentorList() : Mentor[] {
-    return this._mentorList
+    return this._mentorList;
   }
   
   @Output() public delete: EventEmitter<number>;
   // public mentorForm: FormGroup;
 
-  private _mentorList!: Mentor[];
+  public filterMentor: Mentor[];
+  public _mentorList!: Mentor[];
+  
   constructor(private route: Router,private listPresenter: ListPresenterService) { 
     this.delete = new EventEmitter();
   }
@@ -34,6 +39,10 @@ export class ListPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.listPresenter.delete$.subscribe(data => {
       this.delete.emit(data);
+    })
+
+    this.listPresenter.filterData$.subscribe(data => {
+      this.filterMentorData(data)
     })
   }
 
@@ -47,4 +56,37 @@ export class ListPresentationComponent implements OnInit {
   onDelete(id: number){
     this.listPresenter.onDelete(id);
   }
+
+  // filter data
+  filterMentorData(data: any){
+    if (!this.filterMentor) {
+      this.filterMentor = [...this._mentorList];
+    }
+    console.log(this.filterMentor)
+
+    const keys: string[] = Object.keys(data);
+
+    keys.forEach((key) => {
+      if(data[key]) {
+       
+        this.filterMentor = this.filterMentor.filter((res: any) => {
+          
+          return res[key] === data[key];
+        })
+      }
+    })
+    // debugger
+    this._mentorList = this.filterMentor;
+  }
+
+  // drag and drop
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this._mentorList, event.previousIndex, event.currentIndex);
+  }
+
+  // pagination
+  getMentorArrayLen(length: any){
+    return new Array(length);
+  }
 }
+

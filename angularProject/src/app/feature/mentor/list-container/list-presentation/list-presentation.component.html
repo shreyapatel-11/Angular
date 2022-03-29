@@ -7,7 +7,8 @@
     </div>
   </div>
   
-  <table class="table caption-top border text-center">
+  <div>
+  <table class="table caption-top border text-center" >
     <thead>
       <tr>
         <th scope="col">User Id</th>
@@ -19,8 +20,10 @@
         <th scope="col">Actions</th>
       </tr>
     </thead>
-    <tbody>
-      <tr class="align-middle" *ngFor="let mentor of mentorList; let i = index">
+    <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+      <tr class="align-middle" *ngFor="let mentor of mentorList | slice:startIndex:endIndex; 
+          let i = index" cdkDrag
+      >
         <td>{{ i + 1 }}</td>
         <td>{{ mentor.name }}</td>
         <td>{{ mentor.age }}</td>
@@ -34,4 +37,15 @@
       </tr>
     </tbody>
   </table>
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <!-- <li class="page-item"><a class="page-link" href="#">1</a></li> -->
+    <li *ngFor="let item of getMentorArrayLen(_mentorList.length); let i = index" class="page-item">
+      <a class="page-link" href="#">{{ i+1 }}</a>
+    </li>
+    <!-- <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</div>
+<!-- <app-pagination></app-pagination> -->
 

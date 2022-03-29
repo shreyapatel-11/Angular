@@ -15,6 +15,7 @@ export class FilterOverlayPresentationComponent implements OnInit {
   @Output() filterData: EventEmitter<Mentor>;
 
   mentorForm: FormGroup;
+  
   constructor(private filterPresenter: FilterOverlayPresenterService) { 
     this.mentorForm = filterPresenter.builForm();
     this.filterData = new EventEmitter();

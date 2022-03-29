@@ -15,7 +15,7 @@ export class ListPresenterService {
 
   private filterData: Subject<Mentor>;
   public filterData$: Observable<Mentor>;
-
+  
   constructor(private overlay: Overlay) { 
     this.delete = new Subject();
     this.delete$ = new Observable();
@@ -47,4 +47,5 @@ export class ListPresenterService {
       overlayRef.detach();
     });
   }
+  
 }

@@ -16,9 +16,9 @@ import { ListPresenterService } from '../list-presenter/list-presenter.service';
 })
 export class ListPresentationComponent implements OnInit {
 
-  // data$: Observable<any>;
-  // startIndex = 0;
-  // endIndex = 5;
+  data$: Observable<any>;
+  startIndex = 0;
+  endIndex = 5;
   @Input() public set mentorList(value : Mentor[] | null) {
     if (value) {
       this._mentorList = value;
@@ -49,7 +49,7 @@ export class ListPresentationComponent implements OnInit {
     })
 
     // pagination
-    // this.data$ = this.http.get(`http://localhost:3000/mentor`)
+    this.data$ = this.http.get(`http://localhost:3000/mentor`)
   }
 
   onEdit(id: number){
@@ -91,12 +91,12 @@ export class ListPresentationComponent implements OnInit {
   }
 
   // pagination
-  // getMentorArrayLen(length: number){
-  //   return new Array(length/6);
-  // }
-  // updateIndex(pageIndex: number){
-  //   this.startIndex = pageIndex * 6;
-  //   this.endIndex = this.startIndex + 6;
-  // }
+  getMentorArrayLen(length: number){
+    return new Array(length/6);
+  }
+  updateIndex(pageIndex: number){
+    this.startIndex = pageIndex * 6;
+    this.endIndex = this.startIndex + 6;
+  }
 }
 

@@ -5,9 +5,9 @@
       <button class="btn btn-dark" routerLink="../form">+ Add</button>
       <button class="btn btn-info" (click)="onOverlay()"> Filter</button>
     </div>
-  </div>
+</div>
   
-  <!-- <div *ngIf="data$ |async as data"> -->
+<div *ngIf="data$ | async as data">
   <table class="table caption-top border text-center" >
     <thead>
       <tr>
@@ -40,12 +40,12 @@
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
     <!-- <li class="page-item"><a class="page-link" href="#">1</a></li> -->
-    <!-- <li *ngFor="let item of getMentorArrayLen(data.length); let i = index" class="page-item">
+    <li *ngFor="let item of getMentorArrayLen(data.length); let i = index" class="page-item">
       <a class="page-link" (click)="updateIndex(i)">{{ i+1 }}</a>
-    </li> -->
+    </li>
     <!-- <li class="page-item"><a class="page-link" href="#">3</a></li> -->
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>
-<!-- </div> -->
+</div>
 <!-- <app-pagination></app-pagination> -->
 

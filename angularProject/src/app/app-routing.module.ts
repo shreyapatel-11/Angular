@@ -10,6 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./feature/data-binding/data-binding.module').then(m => m.DataBindingModule)
   },
   { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) },
+  { path: 'pie-chart', loadChildren: () => import('./pie-chart/pie-chart.module').then(m => m.PieChartModule) },
 ];
 
 @NgModule({

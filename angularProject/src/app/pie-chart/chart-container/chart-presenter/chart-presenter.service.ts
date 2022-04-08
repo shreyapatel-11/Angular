@@ -7,8 +7,15 @@ import { PieChart } from '../../model/pie-chart.model';
 export class ChartPresenterService {
 
   leave: PieChart[]= [
-    {}
+    {leaveName: 'office work'},
+    {leaveName: 'sleep'},
+    {leaveName: 'Eat'},
+    {leaveName: 'Watch TV'},
     
   ]
   constructor() { }
+
+  getAll() {
+    return this.leave;
+  }
 }

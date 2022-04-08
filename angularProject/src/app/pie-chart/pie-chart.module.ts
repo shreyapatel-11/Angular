@@ -5,17 +5,23 @@ import { PieChartRoutingModule } from './pie-chart-routing.module';
 import { PieChartComponent } from './pie-chart.component';
 import { ChartContainerComponent } from './chart-container/chart-container.component';
 import { ChartPresentationComponent } from './chart-container/chart-presentation/chart-presentation.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
   declarations: [
     PieChartComponent,
     ChartContainerComponent,
-    ChartPresentationComponent
+    ChartPresentationComponent,
+    
   ],
   imports: [
     CommonModule,
-    PieChartRoutingModule
+  
+    PieChartRoutingModule,
+    GoogleChartsModule,
+  
   ]
 })
 export class PieChartModule { }

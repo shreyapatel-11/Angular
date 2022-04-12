@@ -9,12 +9,13 @@ declare var google: any;
   templateUrl: './chart-presentation.component.html',
   styleUrls: ['./chart-presentation.component.scss'],
 })
-export class ChartPresentationComponent implements AfterViewInit {
+export class ChartPresentationComponent implements OnInit {
 
 
   @ViewChild('pieChart') pieChart: ElementRef
 
   drawChart = () => {
+
 
   const data = google.visualization.arrayToDataTable([
     ['Task', 'Hours per Day'],
@@ -26,7 +27,7 @@ export class ChartPresentationComponent implements AfterViewInit {
   ]);
 
   const options = {
-    pieHole: 0.4,
+    pieHole: 0.8,
     title: 'My Daily Activities',
     legend: {position: 'top'}
   };
@@ -36,7 +37,7 @@ export class ChartPresentationComponent implements AfterViewInit {
   chart.draw(data, options);
 }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(this.drawChart);
   }

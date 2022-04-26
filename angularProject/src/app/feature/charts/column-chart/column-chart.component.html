@@ -1,0 +1,31 @@
+<div class="card-content d-flex flex-column flex-sm-row align-items-center justify-content-around mt-3">
+    <div class="position-relative chart">
+        <google-chart [type]="chartType" [data]="chartData" [options]="chartOptions"></google-chart>
+        <div class="total-leave d-flex flex-column align-items-center ">
+            <!-- <span class="text-muted fs-6">Total Leave</span>
+            <span class="fs-3">20</span> -->
+        </div>
+    </div>
+</div>
+
+<!-- column chart -->
+<div class="d-flex">
+    
+    <google-chart 
+        [type]="type"
+        [data]="data"
+        [options]="options"
+        [width]="width"
+        [height]="height">
+    </google-chart>
+
+    <div class="justify-content-end  mt-3">
+        <select name="week" id="1">
+            <option value="1">This Week</option>
+            <option value="2">Last Week</option>
+        </select>
+    </div>
+</div>
+
+
+<div appColumnChart></div>

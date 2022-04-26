@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ChartType } from 'angular-google-charts';
 import { ChartPresenterService } from '../chart-presenter/chart-presenter.service';
 
-declare var google: any;
+// declare var google: any;
 
 @Component({
   selector: 'app-chart-presentation',
@@ -19,17 +19,17 @@ export class ChartPresentationComponent implements OnInit {
 
   const data = google.visualization.arrayToDataTable([
     ['Task', 'Hours per Day'],
-    ['Work', 11],
-    ['Eat', 2],
-    ['Commute', 2],
-    ['Watch TV', 2],
-    ['Sleep', 7]
+    ['Accepted', 8],
+    ['Rejected', 2],
+    ['Pending', 2],
+    ['Req. Revoke', 0],
+    ['Revoked', 0]
   ]);
 
   const options = {
     pieHole: 0.8,
-    title: 'My Daily Activities',
-    legend: {position: 'top'}
+    // legend: {position: 'top'},
+
   };
 
   const chart = new google.visualization.PieChart(this.pieChart.nativeElement);

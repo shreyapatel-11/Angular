@@ -6,7 +6,6 @@ import { PieChartComponent } from './pie-chart.component';
 import { ChartContainerComponent } from './chart-container/chart-container.component';
 import { ChartPresentationComponent } from './chart-container/chart-presentation/chart-presentation.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -18,7 +17,6 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
   imports: [
     CommonModule,
-  
     PieChartRoutingModule,
     GoogleChartsModule,
   

@@ -11,6 +11,7 @@ const routes: Routes = [
   },
   { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) },
   { path: 'pie-chart', loadChildren: () => import('./pie-chart/pie-chart.module').then(m => m.PieChartModule) },
+  { path: 'charts', loadChildren: () => import('./feature/charts/charts.module').then(m => m.ChartsModule) },
 ];
 
 @NgModule({

@@ -33,12 +33,14 @@ export class ColumnChartComponent implements OnInit {
     chartArea: { width: '100%', height: '100%' },
     pieSliceTextStyle: { color: 'transparent' },
     colors: ['#408CFF', '#F26A6A', '#FFB800', '#f3b49f', '#f6c7b6'],
+   
   };
   //end: PieChart  
 
   //start: column chart 
 
   public type = ChartType.ColumnChart;
+
   public data = [
       ["Mon", 90],
       ["Tue", 110],
@@ -50,11 +52,14 @@ export class ColumnChartComponent implements OnInit {
    ];
 
    columnNames = ['Year', 'Asia'];
+  //  backgroundColor: {color: 'red'};	
 
    options = {
     legend: 'none',
     vAxis: {
-      //remove for minor gridlines
+      /**
+       * @remove : minor gridlines
+       */
       minorGridlines:{count:0},
 
       // gridlines: {

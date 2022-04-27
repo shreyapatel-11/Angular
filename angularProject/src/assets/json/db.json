@@ -1,4 +1,34 @@
 {
+  "chart":[
+    {
+      "day": "Mon",
+      "patient": 90
+    },
+    {
+      "day": "Tue",
+      "patient": 123
+    },
+    {
+      "day": "Wed",
+      "patient": 98
+    },
+    {
+      "day": "Thu",
+      "patient": 100
+    },
+    {
+      "day": "Fri",
+      "patient": 80
+    },
+    {
+      "day": "Sat",
+      "patient": 120
+    },
+    {
+      "day": "Sun",
+      "patient": 120
+    }
+  ],
   "mentor": [
     {
       "name": "Hiren",

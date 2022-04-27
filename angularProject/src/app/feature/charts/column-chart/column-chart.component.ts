@@ -1,17 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { ChartType } from 'angular-google-charts';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ChartType, Column } from 'angular-google-charts';
+import { Chart } from '../model/charts.model';
+import { ChartsService } from '../service/charts.service';
 
 @Component({
   selector: 'app-column-chart',
   templateUrl: './column-chart.component.html',
   styleUrls: ['./column-chart.component.scss']
 })
-export class ColumnChartComponent implements OnInit {
+export class ColumnChartComponent implements AfterViewInit {
 
-  constructor() { }
+  constructor(private chartService: ChartsService) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.getChartData();
   }
+    
+  
   //start: PieChart  
 
   public chartType = ChartType.PieChart;
@@ -41,15 +46,56 @@ export class ColumnChartComponent implements OnInit {
 
   public type = ChartType.ColumnChart;
 
+  public columnData: Chart[];
+
+  getChartData(){
+    this.chartService.getColumn().subscribe(data => {
+      console.log(data)
+      this.columnData = data;
+      this.mehtod();
+    })
+  }
   public data = [
-      ["Mon", 90],
+      ["Mon", 50],
       ["Tue", 110],
       ["Wed", 97],
       ["Thu", 50],
       ["Fri", 14],
       ["Sat", 120],
-      ["Sun", 80],
+      ["Sun", 0],
    ];
+  //  public arr:any=[]
+   mehtod() {
+     /**
+      * @forEach loop
+      */
+    //  let iterator = 0;
+    //   this.columnData.forEach( (i) => {
+    //   this.data[iterator][1] = i.patient;
+    //   console.log(this.data[iterator][1]);
+    //   iterator++;
+    // });
+
+    /**
+     * @for...of loop
+     */
+    let p = 0;
+    for (const i of this.columnData) {
+      this.data[p][1] = i.patient;
+      // console.log(i);
+      console.log(this.data[p][1]);
+      p++;
+    }
+
+    /**
+     * @for loop
+     */
+    //  for(let i =0 ; i<= this.columnData.length; i++) {
+    //   //  console.log(this.columnData[i].patient);
+    //    this.data[i][1]=this.columnData[i].patient;
+    //   //  console.log(this.data[i][1])
+    //  }
+   }
 
    columnNames = ['Year', 'Asia'];
   //  backgroundColor: {color: 'red'};	

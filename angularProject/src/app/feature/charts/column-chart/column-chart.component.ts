@@ -8,15 +8,14 @@ import { ChartsService } from '../service/charts.service';
   templateUrl: './column-chart.component.html',
   styleUrls: ['./column-chart.component.scss']
 })
-export class ColumnChartComponent implements AfterViewInit {
+export class ColumnChartComponent implements OnInit {
 
   constructor(private chartService: ChartsService) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.getChartData();
   }
     
-  
   //start: PieChart  
 
   public chartType = ChartType.PieChart;
@@ -52,20 +51,20 @@ export class ColumnChartComponent implements AfterViewInit {
     this.chartService.getColumn().subscribe(data => {
       console.log(data)
       this.columnData = data;
-      this.mehtod();
     })
   }
   public data = [
-      ["Mon", 50],
-      ["Tue", 110],
-      ["Wed", 97],
-      ["Thu", 50],
-      ["Fri", 14],
-      ["Sat", 120],
+      ["Mon", -5],
+      ["Tue", 10],
+      ["Wed", 1],
+      ["Thu", 3],
+      ["Fri", 5],
+      ["Sat", 2],
       ["Sun", 0],
    ];
-  //  public arr:any=[]
-   mehtod() {
+   
+  //  dynamic data
+   mehtod(temp:Chart[]) {
      /**
       * @forEach loop
       */
@@ -80,12 +79,19 @@ export class ColumnChartComponent implements AfterViewInit {
      * @for...of loop
      */
     let p = 0;
-    for (const i of this.columnData) {
-      this.data[p][1] = i.patient;
-      // console.log(i);
-      console.log(this.data[p][1]);
+    
+    for (const i of temp) {
+      if(this.data[p][0]===i.day){
+        // console.log(this.data[p][0]===i.day);
+        this.data[p][1] = i.patient;
+      }
+      else{
+        this.data[p][1] = 0;
+      }
+      // console.log(this.data[p][1]);
       p++;
     }
+    console.log(this.data)
 
     /**
      * @for loop
@@ -118,7 +124,27 @@ export class ColumnChartComponent implements AfterViewInit {
 
    width = 550;
    height = 500;
-   
-  //end: column-chart  
 
+   public selected: number;
+   public tempColumnData: Chart[];
+   public temp: Chart[];
+
+  //  select this week or last week
+   update(e:any){
+    //  console.log(this.columnData)
+     this.selected = e.target.value
+     this.tempColumnData = this.columnData
+     if(this.selected == 1){
+       this.temp  = this.tempColumnData.slice(0,7)
+       this.mehtod(this.temp)
+      //  console.log(this.tempColumnData.slice(0,7));
+     }
+     else{
+       this.temp= this.tempColumnData.slice(7)
+        this.mehtod(this.temp)
+      //  console.log(this.tempColumnData.slice(7));
+    }
+
+  }
+  //end: column-chart 
 }

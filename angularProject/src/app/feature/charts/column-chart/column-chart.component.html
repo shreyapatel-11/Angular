@@ -1,4 +1,7 @@
-<div class="card-content d-flex flex-column flex-sm-row align-items-center justify-content-around m-3">
+
+{{
+    data | json
+}}<div class="card-content d-flex flex-column flex-sm-row align-items-center justify-content-around m-3">
     <div class="position-relative chart">
         <google-chart [type]="chartType" [data]="chartData" [options]="chartOptions"></google-chart>
         <div class="total-leave d-flex flex-column align-items-center ">
@@ -14,11 +17,12 @@
     <div class="d-flex justify-content-between">
         <div class="ps-4">Patient Visited</div>
         <div class="">
-            <select name="week" id="1">
+            <select name="week" id="1" (change)="update($event)" #ad>
                 <option value="1">This Week</option>
                 <option value="2">Last Week</option>
             </select>
         </div>
+        <p>You selected {{selected}}</p>
     </div>
     <div>
         <google-chart 
@@ -41,3 +45,5 @@
            >
     </google-chart>
 </div>
+
+<div ></div>

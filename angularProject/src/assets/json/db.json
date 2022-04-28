@@ -1,33 +1,64 @@
 {
   "chart":[
-    {
-      "day": "Mon",
-      "patient": 90
-    },
-    {
-      "day": "Tue",
-      "patient": 123
-    },
-    {
-      "day": "Wed",
-      "patient": 98
-    },
-    {
-      "day": "Thu",
-      "patient": 100
-    },
-    {
-      "day": "Fri",
-      "patient": 80
-    },
-    {
-      "day": "Sat",
-      "patient": 120
-    },
-    {
-      "day": "Sun",
-      "patient": 120
-    }
+    
+      {
+        "day": "Mon",
+        "patient": 90
+      },
+      {
+        "day": "Tue",
+        "patient": 123
+      },
+      {
+        "day": "Wed",
+        "patient": 98
+      },
+      {
+        "day": "Thu",
+        "patient": 100
+      },
+      {
+        "day": "Fri",
+        "patient": 80
+      },
+      {
+        "day": "Sat",
+        "patient": 120
+      },
+      {
+        "day": "Sun",
+        "patient": 120
+      },
+    
+      {
+        "day": "Mon",
+        "patient": 10
+      },
+      {
+        "day": "Tue",
+        "patient": 98
+      },
+      {
+        "day": "Wed",
+        "patient": 36
+      },
+      {
+        "day": "Thu",
+        "patient": 134
+      },
+      {
+        "day": "Fri",
+        "patient": 79
+      },
+      {
+        "day": "Sat",
+        "patient": 86
+      },
+      {
+        "day": "Sun",
+        "patient": 71
+      }
+    
   ],
   "mentor": [
     {

@@ -13,11 +13,11 @@
 
 <!-- column chart -->
 <!-- using service -->
-<div class="" style="width: 550px;">
+<div style="width: 550px;">
     <div class="d-flex justify-content-between">
         <div class="ps-4">Patient Visited</div>
-        <div class="">
-            <select name="week" id="1" (change)="update($event)" #ad>
+        <div>
+            <select name="week" id="1" (change)="update($event)">
                 <option value="1">This Week</option>
                 <option value="2">Last Week</option>
             </select>
@@ -32,8 +32,7 @@
             [width]="width"
             [height]="height">
         </google-chart>
-    </div>
-   
+    </div>  
 </div>
 
 <!--start: using directive -->

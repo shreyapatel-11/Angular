@@ -18,10 +18,10 @@ export class ChartPresentationComponent implements OnInit {
 
 
   const data = google.visualization.arrayToDataTable([
-    ['Task', 'Hours per Day'],
-    ['Accepted', 8],
-    ['Rejected', 2],
-    ['Pending', 2],
+    ['Task', 'Hours per Day','Average'],
+    ['Accepted', 8,6],
+    ['Rejected', 2,9],
+    ['Pending', 2,4],
     ['Req. Revoke', 0],
     ['Revoked', 0]
   ]);

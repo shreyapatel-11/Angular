@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ChartType, Column } from 'angular-google-charts';
 import { Chart } from '../model/charts.model';
 import { ChartsService } from '../service/charts.service';
@@ -6,7 +6,8 @@ import { ChartsService } from '../service/charts.service';
 @Component({
   selector: 'app-column-chart',
   templateUrl: './column-chart.component.html',
-  styleUrls: ['./column-chart.component.scss']
+  styleUrls: ['./column-chart.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ColumnChartComponent implements OnInit {
 
@@ -86,14 +87,15 @@ export class ColumnChartComponent implements OnInit {
      */
      let p = 0;
      for (const i of temp) {
-       if(this.data[p][0]==i.day){
-         console.log(this.data[p][0]===i.day, " ",this.data[p][0], " ", i.day);
+      //  if(this.data[p][0]==i.day){
+        //  console.log(this.data[p][0]===i.day, " ",this.data[p][0], " ", i.day);
+         this.data[p][0] = i.day;
          this.data[p][1] = i.patient;
          this.cRef.detectChanges();
-       }
-       else{
-         this.data[p][1] = 0;
-       }
+      //  }
+      //  else{
+        //  this.data[p][1] = 0;
+      //  }
        // console.log(this.data[p][1]);
        p++;
        
@@ -116,18 +118,23 @@ export class ColumnChartComponent implements OnInit {
 
   options = {
     legend: 'none',
+
     vAxis: {
       /**
        * @remove : minor gridlines
        */
       minorGridlines: { count: 0 },
-
-      // gridlines: {
-      //     color: 'none'
-      // }
-    }
-
-    // colors: ['#408CFF']
+      gridlines: {
+          // color: 'none'
+          
+          lineStyle: "dashed",
+      },
+      
+    },
+    series:{
+      0: { lineDashStyle: [2, 2] },
+    },
+    colors: ['#7fb4be']
     // chartArea: { width: '100%', height: '100%' },
   };
 

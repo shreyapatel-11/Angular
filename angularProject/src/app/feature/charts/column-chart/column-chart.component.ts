@@ -14,7 +14,7 @@ export class ColumnChartComponent implements OnInit {
   constructor(private chartService: ChartsService,private cRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.getChartData();
+    // this.getChartData();
 
   }
 
@@ -63,7 +63,7 @@ export class ColumnChartComponent implements OnInit {
     ["Thu", 3],
     ["Fri", 5],
     ["Sat", 2],
-    ["Sun", 0],
+    ["Sun", 1],
   ];
   public data2 = [
     ['avg', 3],
@@ -118,7 +118,8 @@ export class ColumnChartComponent implements OnInit {
 
   options = {
     legend: 'none',
-
+    bar: {groupWidth: "20"},
+    
     vAxis: {
       /**
        * @remove : minor gridlines

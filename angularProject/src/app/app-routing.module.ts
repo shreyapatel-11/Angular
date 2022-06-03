@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) },
   { path: 'pie-chart', loadChildren: () => import('./pie-chart/pie-chart.module').then(m => m.PieChartModule) },
   { path: 'charts', loadChildren: () => import('./feature/charts/charts.module').then(m => m.ChartsModule) },
+  { path: 'progress-bar', loadChildren: () => import('./feature/progress-bar/progress-bar.module').then(m => m.ProgressBarModule) },
 ];
 
 @NgModule({

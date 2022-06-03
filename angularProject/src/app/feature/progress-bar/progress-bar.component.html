@@ -1,0 +1,86 @@
+<form action="#" class="form" [formGroup]="personalDetails">
+    <h1 class="text-center">Registration Form</h1>
+    <!-- start: Progress bar -->
+    <div class="progressbar">
+        <div class="progress" id="progress"></div>
+
+        <div class="progress-step intro" [ngClass]="step == 1 ? 'progress-step-active ' : 'inactive'" data-title="Intro"></div>
+        <div class="progress-step" data-title="Contact" [ngClass]="step == 2 ? 'progress-step-active ' : 'inactive'"></div>
+        <div class="progress-step" data-title="ID" [ngClass]="step == 3 ? 'progress-step-active ' : 'inactive'"></div>
+        <!-- <div class="progress-step" data-title="Password"></div> -->
+    </div>
+    <!-- end: Progress bar -->
+
+    <!-- Steps -->
+    <!-- start: Intro -->
+    <!-- intro {{intro_step}} -->
+    <div class="form-step" [ngClass]="{'form-step-active' : step === 1}">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName="name" id="username"/>
+        </div>
+        <div class="input-group">
+            <label for="position">Position</label>
+            <input type="text" name="position" id="position" />
+        </div>
+        <div class="">
+           
+            <!-- <input type="button" name="next" class="btn btn-primary btn-next width-50 ms-auto" value="Pre" (click)="previous()"> -->
+            <!-- <a href="#" class="btn btn-primary btn-next width-50 ml-auto" (click)="next()">Next</a> -->
+            <input type="button" name="next" class="btn btn-primary btn-next width-50 ms-auto text-light" value="Next" (click)="next()">
+        </div>
+    </div>
+    <!-- end: Intro -->
+
+    <!-- start: Contact -->
+    <!-- contact {{contact_step}} -->
+    <div class="form-step" [ngClass]="{'form-step-active' : step === 2}">
+        <div class="input-group">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" />
+        </div> 
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" />
+        </div>
+        <div class="d-flex btns-group">
+            <input type="button" class="btn btn-prev btn-primary col-6 me-3" (click)="previous()" value="Previous" />
+            <input type="button" name="next" class="btn btn-primary btn-next width-50 ms-auto text-light" value="Next" (click)="next()">
+        </div>
+    </div>
+    <!-- end: Contact -->
+
+    <!-- start: Id -->
+    <div class="form-step" [ngClass]="{'form-step-active' : step === 3}">
+        <div class="input-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" id="dob" />
+        </div>
+        <div class="input-group">
+            <label for="ID">National ID</label>
+            <input type="number" name="ID" id="ID" />
+        </div>
+        <div class="d-flex btns-group">
+            <input type="button" class="btn btn-prev btn-primary col-6 me-3" (click)="previous()" value="Previous" />
+            <input (click)="submit()" type="submit" name="submit" class="sub" value="Submit"/>
+        </div>
+    </div>
+    <!-- end: Id -->
+
+    <!-- start: Password -->
+    <div class="form-step">
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+        </div>
+        <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" />
+        </div>
+        <div class="btns-group">
+            <input type="button" class="btn btn-prev" (click)="previous()" value="Previous" />
+            <input (click)="submit()" type="submit" name="submit" class="submit action-button" value="Submit"/>
+        </div>
+    </div>
+    <!-- end: Password -->
+</form>

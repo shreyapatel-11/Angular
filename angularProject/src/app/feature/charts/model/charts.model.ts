@@ -1,6 +1,7 @@
 export class Chart{
     day: string;
     patient: number;
+  static LineStyleSpec: any;
 
     constructor(
         day: string,

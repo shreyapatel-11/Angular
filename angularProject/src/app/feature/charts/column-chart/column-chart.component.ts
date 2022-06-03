@@ -14,7 +14,7 @@ export class ColumnChartComponent implements OnInit {
   constructor(private chartService: ChartsService,private cRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    // this.getChartData();
+    this.getChartData();
 
   }
 
@@ -127,11 +127,11 @@ export class ColumnChartComponent implements OnInit {
       minorGridlines: { count: 0 },
       gridlines: {
           // color: 'none'
-          
-          lineStyle: "dashed",
-      },
+          lineStyle: "dotted",
       
+      }, 
     },
+  
     series:{
       0: { lineDashStyle: [2, 2] },
     },
@@ -142,23 +142,26 @@ export class ColumnChartComponent implements OnInit {
   width = 550;
   height = 500;
 
-  //  select this week or lasst week
+  //  select this week or last week
   public selected: number;
   public tempColumnData: Chart[];
   public tempData: Chart[];
 
   update(e: any) {
     this.selected = e.target.value
-    this.tempColumnData = this.columnData;
-
+    // this.tempColumnData = this.columnData;
+    // console.log(this.tempColumnData);
+    
     if (this.selected == 1) {
-      this.tempData = this.tempColumnData.slice(0, 7)
+      this.tempData = this.columnData?.slice(0, 7);
       this.method(this.tempData)
+      this.cRef.detectChanges();
+
      
       //  console.log(this.tempColumnData.slice(0,7));
     }
     else {
-      this.tempData = this.tempColumnData.slice(7)
+      this.tempData = this.columnData?.slice(7);
       this.method(this.tempData);
       this.cRef.detectChanges();
       // console.log(this.tempColumnData.slice(7));

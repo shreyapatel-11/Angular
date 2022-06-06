@@ -35,10 +35,10 @@ export class ProgressBarComponent implements OnInit {
       this.contact_step = true;
       this.step++
     }
-    // else{
-    //   this.id_step = true;
-    //   this.step++
-    // }
+    else{
+      this.id_step = true;
+      this.step++
+    }
   }
 
   previous() {

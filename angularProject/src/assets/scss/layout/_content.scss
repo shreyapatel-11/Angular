@@ -43,16 +43,22 @@ input {
     background-color: #dcdcdc;
     z-index: -1;
 }
-.progressbar::after{
-    .progress{
 
-        width: 30%;
+.progressbar::after {
+    .progress {
+        width: 100%;
     }
 }
+
 .progress {
-    background-color: var(--primary-color);
-    width: 0%;
+    // background-color: var(--primary-color);
+    // width: 0%;
     transition: 0.3s;
+    background-color: #666;
+}
+
+.progress::after {
+    width: 30%;
 }
 
 .progress-step {
@@ -77,13 +83,10 @@ input {
     top: calc(100% + 0.5rem);
     font-size: 0.85rem;
     color: #666;
-    
-    .progress {
-        width: 33.33%;
-    }
 }
+
 .progress-step-active {
-    background-color: var(--primary-color);
+    // background-color: var(--primary-color);
     color: #e92a2a;
 }
 

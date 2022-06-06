@@ -2,12 +2,12 @@
     <h1 class="text-center">Registration Form</h1>
     <!-- start: Progress bar -->
     <div class="progressbar">
-        <div class="progress" id="progress"></div>
+        <div class="progress" id="progress" [ngClass]="{'w-20' : step == 1, 'w-5' : step == 2 ,'w-65' : step == 3, 'w-35' : step == 4}"></div>
 
         <div class="progress-step intro" [ngClass]="step == 1 ? 'progress-step-active ' : 'inactive'" data-title="Intro"></div>
         <div class="progress-step" data-title="Contact" [ngClass]="step == 2 ? 'progress-step-active ' : 'inactive'"></div>
         <div class="progress-step" data-title="ID" [ngClass]="step == 3 ? 'progress-step-active ' : 'inactive'"></div>
-        <!-- <div class="progress-step" data-title="Password"></div> -->
+        <div class="progress-step" data-title="Password" [ngClass]="step == 4 ? 'progress-step-active ' : 'inactive'"></div>
     </div>
     <!-- end: Progress bar -->
 
@@ -62,13 +62,13 @@
         </div>
         <div class="d-flex btns-group">
             <input type="button" class="btn btn-prev btn-primary col-6 me-3" (click)="previous()" value="Previous" />
-            <input (click)="submit()" type="submit" name="submit" class="sub" value="Submit"/>
+            <input type="button" name="next" class="btn btn-primary btn-next width-50 ms-auto text-light" value="Next" (click)="next()">
         </div>
     </div>
     <!-- end: Id -->
 
     <!-- start: Password -->
-    <div class="form-step">
+    <div class="form-step" [ngClass]="{'form-step-active' : step === 4}"> 
         <div class="input-group">
             <label for="password">Password</label>
             <input type="password" name="password" id="password" />
@@ -77,9 +77,9 @@
             <label for="confirmPassword">Confirm Password</label>
             <input type="password" name="confirmPassword" id="confirmPassword" />
         </div>
-        <div class="btns-group">
-            <input type="button" class="btn btn-prev" (click)="previous()" value="Previous" />
-            <input (click)="submit()" type="submit" name="submit" class="submit action-button" value="Submit"/>
+        <div class="d-flex btns-group">
+            <input type="button" class="btn btn-prev btn-primary col-6 me-3" (click)="previous()" value="Previous" />
+            <input (click)="submit()" type="button" name="submit" class="btn btn-primary col-6  ms-auto" value="Submit"/>
         </div>
     </div>
     <!-- end: Password -->

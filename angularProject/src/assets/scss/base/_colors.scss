@@ -1,6 +1,9 @@
 // Theme Primary Color
-$primary: #007bff;
+$primary: #145b69;
+$info: #7fb4be;
+$warning:#E7F2F5;
 
+$image-outline:#2093AA;
 // Mainly use for UI controls like Buttons
 // $secondary: #fbde4a;
 
@@ -21,6 +24,8 @@ $btn-text-primary: $primary;
 $theme-colors: (
   "primary": $primary,
   // "secondary": $secondary,
+  "info": $info,
+  "warning": $warning,
   "gray": $gray,
   "light": $light,
   "accent": $accent
